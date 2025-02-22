@@ -9,6 +9,7 @@ import {
 interface NumericInputProps {
   value: number | string;
   onChange: (value: number) => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void; // ✅ Add this prop
   placeholder?: string;
   max?: number;
 }
@@ -21,6 +22,7 @@ const formatNumber = (num: number | string) => {
 const NumericInput: React.FC<NumericInputProps> = ({
   value,
   onChange,
+  onKeyDown,
   placeholder,
   max,
 }) => {
@@ -47,6 +49,7 @@ const NumericInput: React.FC<NumericInputProps> = ({
           value={internalValue}
           placeholder={placeholder}
           onChange={handleInputChange}
+          onKeyDown={onKeyDown} // ✅ Add onKeyDown prop
         />
         <CurrencySymbol>€</CurrencySymbol>
       </InputContainer>

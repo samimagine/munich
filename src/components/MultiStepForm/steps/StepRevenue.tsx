@@ -2,6 +2,7 @@ import React from "react";
 import { useFundedStore } from "../../../store/useFundedStore";
 import { Title, StepCounter, ButtonContainer, Button } from "../primitives";
 import NumericInput from "../../NumericInput/NumericInput";
+import { handleEnterKey } from "../../../utils/handleEnterKey";
 
 interface StepRevenueProps {
   onBack: () => void;
@@ -27,6 +28,7 @@ const StepRevenue: React.FC<StepRevenueProps> = ({
       <NumericInput
         value={revenue || ""}
         onChange={handleChange}
+        onKeyDown={(e) => handleEnterKey(e, onSubmit)}
         placeholder="Enter monthly revenue"
       />
       <StepCounter>Step 5 out of 5</StepCounter>

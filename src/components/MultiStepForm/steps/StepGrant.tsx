@@ -3,6 +3,7 @@ import { useFundedStore } from "../../../store/useFundedStore";
 import { MAX_GRANT_VOLUME } from "../../../constants/formOptions";
 import { Title, StepCounter, Button, ButtonContainer } from "../primitives";
 import NumericInput from "../../NumericInput/NumericInput";
+import { handleEnterKey } from "../../../utils/handleEnterKey";
 
 interface StepGrantProps {
   onNext: () => void;
@@ -25,6 +26,7 @@ const StepGrant: React.FC<StepGrantProps> = ({ onNext, onBack, onUpdate }) => {
         value={grant || ""}
         onChange={handleChange}
         placeholder="Enter grant amount"
+        onKeyDown={(e) => handleEnterKey(e, onNext)}
         max={MAX_GRANT_VOLUME}
       />
       <p>

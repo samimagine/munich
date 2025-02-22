@@ -13,9 +13,13 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 28px;
+  font-size: 40px;
   font-weight: bold;
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
 `;
 
 export const Description = styled.p`
@@ -27,14 +31,19 @@ export const Description = styled.p`
 
 export const InputField = styled.input`
   width: 320px;
+  height: 50px;
   padding: 12px;
-  font-size: 16px;
-  border: 1px solid #ccc;
+  font-size: 18px;
+  border: 1px solid white;
   border-radius: 5px;
   outline: none;
   text-align: center;
-  background: #fff;
-  color: #000;
+  background: black;
+  color: white;
+
+  @media (max-width: 768px) {
+    height: 35px;
+  }
 `;
 
 export const ErrorMessage = styled.p`

@@ -20,7 +20,7 @@ const StepState: React.FC<StepStateProps> = ({ onNext, onUpdate }) => {
 
   return (
     <>
-      <Title>Step 1: Select Your Business State</Title>
+      <Title>In which state is your business based?</Title>
       <AutoCompleteWrapper>
         <AutoComplete
           options={states}

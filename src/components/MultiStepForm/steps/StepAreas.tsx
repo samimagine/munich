@@ -21,7 +21,6 @@ const StepAreas: React.FC<StepAreasProps> = ({ onNext, onBack, onUpdate }) => {
       ? [value]
       : [];
 
-    console.log("Selected Areas:", selectedAreas);
     setFormData({ areas: selectedAreas });
     onUpdate("areas", selectedAreas);
     onNext();
@@ -29,7 +28,7 @@ const StepAreas: React.FC<StepAreasProps> = ({ onNext, onBack, onUpdate }) => {
 
   return (
     <>
-      <Title>Step 3: Select Business Areas</Title>
+      <Title>In which areas are you active?</Title>
       <AutoCompleteWrapper>
         <AutoComplete
           options={businessAreas}

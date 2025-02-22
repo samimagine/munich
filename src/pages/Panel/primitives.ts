@@ -2,55 +2,93 @@ import styled from "styled-components";
 
 export const PanelContainer = styled.div`
   display: flex;
+  flex-direction: column; /* Mobile-first */
   height: 100vh;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+`;
+
+export const LogoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  background: white;
+  border-bottom: 1px solid black;
+
+  @media (min-width: 1024px) {
+    justify-content: flex-start;
+  }
 `;
 
 export const Sidebar = styled.div`
-  width: 220px;
+  width: 100%;
+  min-width: 180px;
   background: white;
-  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 15px;
   display: flex;
-  flex-direction: column;
-  padding: 20px;
-  margin-top: 90px;
+  justify-content: center;
+
+  @media (min-width: 1024px) {
+    width: 220px;
+    border-right: 1px solid black;
+    border-bottom: none;
+    margin-top: 80px;
+    align-items: flex-start;
+  }
 `;
 
-export const SidebarTitle = styled.h2`
-  font-size: 22px;
-  margin-bottom: 20px;
+export const TopBar = styled.div`
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 24px;
+  gap: 24px;
+  justify-content: center;
+  background: white;
+
+  @media (min-width: 1024px) {
+    justify-content: flex-start;
+  }
 `;
 
-export const SidebarButton = styled.button<{ active?: boolean }>`
-  background: ${(props) => (props.active ? "#2d2dff" : "transparent")};
-  color: ${(props) => (props.active ? "white" : "#000")};
+export const TopBarButton = styled.button`
+  background-color: transparent;
+  color: black;
   border: none;
-  padding: 10px;
-  text-align: left;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid black;
   cursor: pointer;
-  margin: 5px 0;
+  transition: background-color 0.2s ease-in-out;
+
+  &.active {
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+  }
+
   &:hover {
-    background: #ddd;
+    background-color: #ddd;
+  }
+`;
+
+export const SearchInput = styled.input`
+  padding: 8px;
+  width: 100%;
+  max-width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  @media (max-width: 1024px) {
+    margin-top: 80px;
   }
 `;
 
 export const MainContent = styled.div`
   flex-grow: 1;
   padding: 20px;
-`;
-
-export const TopBar = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 10px 0;
-`;
-
-export const SearchInput = styled.input`
-  padding: 8px;
-  width: 200px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 `;
 
 export const ContentBox = styled.div`
@@ -65,6 +103,10 @@ export const InfoBox = styled.div`
   padding: 15px;
   border-left: 5px solid #007bff;
   margin-bottom: 20px;
+
+  p {
+    line-height: 1;
+  }
 `;
 
 export const WarningBox = styled.div`
@@ -81,25 +123,37 @@ export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  overflow-x: auto;
+  display: block;
 `;
 
 export const TableHeader = styled.th`
   background: #f4f4f4;
   padding: 10px;
   text-align: left;
+  font-size: 14px;
+  text-align: center;
 `;
 
 export const TableCell = styled.td`
   padding: 10px;
   border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  text-align: right;
+`;
+export const TableCellNoWrap = styled(TableCell)`
+  white-space: nowrap;
 `;
 
 export const Button = styled.button`
   background: #2d2dff;
   color: white;
-  padding: 5px 10px;
+  padding: 5px;
   border: none;
+  font-size: 14px;
+  border-radius: 5px;
   cursor: pointer;
+  width: 60px;
 `;
 
 export const RetryButton = styled(Button)`

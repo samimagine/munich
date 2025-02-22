@@ -20,7 +20,7 @@ const StepGrant: React.FC<StepGrantProps> = ({ onNext, onBack, onUpdate }) => {
 
   return (
     <>
-      <Title>Step 4: Enter Desired Grant Amount (€)</Title>
+      <Title>How much grants would you like to receive?</Title>
       <NumericInput
         value={grant || ""}
         onChange={handleChange}

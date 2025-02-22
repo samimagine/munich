@@ -9,7 +9,9 @@ import {
   StepRevenue,
 } from "./steps";
 import { getBestFundingOptions } from "../../api/fundedApi";
+import { MainContainer, Logo } from "../../primitives";
 import { FormContainer } from "./primitives";
+import logo from "../../assets/logo.png";
 
 const MultiStepForm: React.FC = () => {
   const [step, setStep] = useState(1);
@@ -60,14 +62,6 @@ const MultiStepForm: React.FC = () => {
   };
 
   const handleSubmit = async () => {
-    console.log("📤 Submitting Zustand Data:", {
-      state,
-      company_size,
-      areas,
-      grant,
-      revenue,
-    });
-
     const formData = {
       state,
       company_size: company_size || "",
@@ -75,8 +69,6 @@ const MultiStepForm: React.FC = () => {
       grant: Number(grant) || 0,
       revenue: Number(revenue) || 0,
     };
-
-    console.log("✅ Sending cleaned data:", formData);
 
     try {
       navigate("/magic");
@@ -86,7 +78,6 @@ const MultiStepForm: React.FC = () => {
         navigate("/results");
       }, 2000);
     } catch (error) {
-      console.error("🔴 Error fetching funding options:", error.message);
       setTimeout(() => {
         setFundingResults([]);
         navigate("/results");
@@ -95,39 +86,42 @@ const MultiStepForm: React.FC = () => {
   };
 
   return (
-    <FormContainer>
-      {step === 1 && (
-        <StepState onNext={() => setStep(2)} onUpdate={updateFormData} />
-      )}
-      {step === 2 && (
-        <StepCompanySize
-          onNext={() => setStep(3)}
-          onBack={() => setStep(1)}
-          onUpdate={updateFormData}
-        />
-      )}
-      {step === 3 && (
-        <StepAreas
-          onNext={() => setStep(4)}
-          onBack={() => setStep(2)}
-          onUpdate={updateFormData}
-        />
-      )}
-      {step === 4 && (
-        <StepGrant
-          onNext={() => setStep(5)}
-          onBack={() => setStep(3)}
-          onUpdate={updateFormData}
-        />
-      )}
-      {step === 5 && (
-        <StepRevenue
-          onBack={() => setStep(4)}
-          onUpdate={updateFormData}
-          onSubmit={handleSubmit}
-        />
-      )}
-    </FormContainer>
+    <MainContainer>
+      <Logo src={logo} alt="logo" />
+      <FormContainer>
+        {step === 1 && (
+          <StepState onNext={() => setStep(2)} onUpdate={updateFormData} />
+        )}
+        {step === 2 && (
+          <StepCompanySize
+            onNext={() => setStep(3)}
+            onBack={() => setStep(1)}
+            onUpdate={updateFormData}
+          />
+        )}
+        {step === 3 && (
+          <StepAreas
+            onNext={() => setStep(4)}
+            onBack={() => setStep(2)}
+            onUpdate={updateFormData}
+          />
+        )}
+        {step === 4 && (
+          <StepGrant
+            onNext={() => setStep(5)}
+            onBack={() => setStep(3)}
+            onUpdate={updateFormData}
+          />
+        )}
+        {step === 5 && (
+          <StepRevenue
+            onBack={() => setStep(4)}
+            onUpdate={updateFormData}
+            onSubmit={handleSubmit}
+          />
+        )}
+      </FormContainer>
+    </MainContainer>
   );
 };
 

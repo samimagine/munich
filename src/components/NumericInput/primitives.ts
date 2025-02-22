@@ -15,7 +15,8 @@ export const InputContainer = styled.div`
 
 export const StyledInput = styled.input`
   width: 100%;
-  font-size: 16px;
+  height: 50px;
+  font-size: 18px;
   font-family: "Roboto Slab", sans-serif;
   border: 1px solid white;
   border-radius: 5px;
@@ -23,8 +24,11 @@ export const StyledInput = styled.input`
   text-align: center;
   outline: none;
   background: black;
-  box-sizing: border-box;
   color: white;
+
+  @media (max-width: 768px) {
+    height: 35px;
+  }
 `;
 
 export const CurrencySymbol = styled.span`

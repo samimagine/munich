@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import {
   PanelContainer,
   Sidebar,
-  SidebarButton,
+  TopBarButton,
   MainContent,
   TopBar,
   SearchInput,
@@ -14,8 +14,10 @@ import {
   Table,
   TableHeader,
   TableCell,
+  TableCellNoWrap,
   Button,
   RetryButton,
+  LogoContainer,
 } from "./primitives";
 import { Logo } from "../../primitives";
 import logo from "../../assets/logo_black.png";
@@ -27,18 +29,38 @@ const Panel: React.FC = () => {
 
   return (
     <PanelContainer>
-      <Logo src={logo} alt="logo" />
+      <LogoContainer>
+        <Logo src={logo} alt="logo" />
+      </LogoContainer>
       <Sidebar>
         <SearchInput type="text" placeholder="Search" />
       </Sidebar>
       <MainContent>
         <TopBar>
-          <SidebarButton onClick={() => navigate("/")}>Home</SidebarButton>
-          <SidebarButton onClick={() => navigate("#")} active>
+          <TopBarButton
+            onClick={() => navigate("/")}
+            className={location.pathname === "/" ? "active" : ""}
+          >
+            Home
+          </TopBarButton>
+          <TopBarButton
+            onClick={() => navigate("/identify")}
+            className={location.pathname === "/results" ? "active" : ""}
+          >
             Identify
-          </SidebarButton>
-          <SidebarButton onClick={() => navigate("#")}>Apply</SidebarButton>
-          <SidebarButton onClick={() => navigate("#")}>Manage</SidebarButton>
+          </TopBarButton>
+          <TopBarButton
+            onClick={() => navigate("/apply")}
+            className={location.pathname === "/apply" ? "active" : ""}
+          >
+            Apply
+          </TopBarButton>
+          <TopBarButton
+            onClick={() => navigate("/manage")}
+            className={location.pathname === "/manage" ? "active" : ""}
+          >
+            Manage
+          </TopBarButton>
         </TopBar>
         <ContentBox>
           <h2>Your non-dilutive fundraising options</h2>
@@ -69,12 +91,14 @@ const Panel: React.FC = () => {
                   <tr key={index}>
                     <TableCell>{option["funding option"]}</TableCell>
                     <TableCell>{option["state"]}</TableCell>
-                    <TableCell>
+                    <TableCellNoWrap>
                       {option["grant_volume"].toLocaleString()} €
-                    </TableCell>
+                    </TableCellNoWrap>
                     <TableCell>{option["funding_quota"]}%</TableCell>
                     <TableCell>{option["approval_rate"]}%</TableCell>
-                    <TableCell>{option["time_required"]} months</TableCell>
+                    <TableCellNoWrap>
+                      {option["time_required"]} months
+                    </TableCellNoWrap>
                     <TableCell>
                       {option["benefit_cost_score"] >= 5
                         ? "High"

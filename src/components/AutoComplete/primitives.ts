@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Input = styled.input`
+  height: 50px;
   width: 100%;
   padding: 12px;
   font-family: "Roboto Slab", sans-serif;
@@ -20,6 +21,10 @@ export const Input = styled.input`
 
   &:focus {
     border-color: #d4af37;
+  }
+
+  @media (max-width: 768px) {
+    height: 35px;
   }
 `;
 

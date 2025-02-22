@@ -21,7 +21,6 @@ export const useFundedStore = create<FundingStore>((set) => ({
   fundingResults: [],
 
   setFormData: (data) => {
-    console.log("Updating Zustand:", data);
     set((state) => ({
       ...state,
       ...data,

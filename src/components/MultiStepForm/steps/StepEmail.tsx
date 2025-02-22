@@ -5,6 +5,7 @@ import {
   InputField,
   ErrorMessage,
   Button,
+  Description,
 } from "./primitives";
 
 interface EmailStepProps {
@@ -42,6 +43,11 @@ const EmailStep: React.FC<EmailStepProps> = ({ onNext }) => {
         }}
       />
       {error && <ErrorMessage>{error}</ErrorMessage>}
+      <Description>
+        We use your mail to extract your domain. Based on your domain, our
+        intelligent matching algorithm will provide you with a tailored
+        non-dilutive fundraising roadmap.
+      </Description>
       <Button onClick={handleSubmit}>Continue</Button>
     </Container>
   );

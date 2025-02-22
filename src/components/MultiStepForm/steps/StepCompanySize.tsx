@@ -19,7 +19,6 @@ const StepCompanySize: React.FC<StepCompanySizeProps> = ({
   const { setFormData } = useFundedStore();
 
   const handleSelect = (value: string) => {
-    console.log("Selected Company Size:", value);
     setFormData({ company_size: value });
     onUpdate("company_size", value);
     onNext();
@@ -27,7 +26,7 @@ const StepCompanySize: React.FC<StepCompanySizeProps> = ({
 
   return (
     <>
-      <Title>Step 2: Select Your Company Size</Title>
+      <Title>What is your company size?</Title>
       <AutoCompleteWrapper>
         <AutoComplete
           options={companySizes}

@@ -1,50 +1,67 @@
-# React + TypeScript + Vite
+# 🚀 Funded - MultiStep Form
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a **multi-step funding form** built with **React, Zustand, and Vite**. It allows users to enter business details and find non-dilutive funding options.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Features
 
-## Expanding the ESLint configuration
+- **Step-by-step form** with state management using Zustand
+- **Auto-save in URL** to persist user inputs
+- **Magic loading page** before showing results
+- **Responsive panel** for managing funding options
+- **GitHub Pages Deployment**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## 🛠️ Installation & Setup
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```sh
+# Clone the repository
+git clone https://github.com/samimagine/munich.git
+cd munich
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 📂 Project Structure
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+📦 munich
+├── 📂 src
+│   ├── 📂 components
+│   ├── 📂 store
+│   ├── 📂 pages
+│   ├── 📂 assets
+│   ├── main.tsx
+│   ├── App.tsx
+├── 📄 vite.config.ts
+├── 📄 package.json
+├── 📄 README.md
+└── 📄 tsconfig.json
+```
+
+---
+
+## 🔧 Technologies Used
+
+- **React** - Component-based UI
+- **Vite** - Fast build tool
+- **Zustand** - State management
+- **TypeScript** - Static typing
+- **Styled Components** - Styling
+- **React Router** - Navigation
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---

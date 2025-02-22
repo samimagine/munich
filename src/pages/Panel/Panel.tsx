@@ -45,7 +45,7 @@ const Panel: React.FC = () => {
           </TopBarButton>
           <TopBarButton
             onClick={() => navigate("/identify")}
-            className={location.pathname === "/results" ? "active" : ""}
+            className={location.pathname === "/munich/results" ? "active" : ""}
           >
             Identify
           </TopBarButton>

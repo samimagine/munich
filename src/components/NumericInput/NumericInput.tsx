@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { InputWrapper, StyledInput, InputContainer } from "./primitives";
+import {
+  InputWrapper,
+  StyledInput,
+  InputContainer,
+  CurrencySymbol,
+} from "./primitives";
 
 interface NumericInputProps {
   value: number | string;
@@ -43,7 +48,7 @@ const NumericInput: React.FC<NumericInputProps> = ({
           placeholder={placeholder}
           onChange={handleInputChange}
         />
-        <span className="currency">€</span>
+        <CurrencySymbol>€</CurrencySymbol>
       </InputContainer>
     </InputWrapper>
   );

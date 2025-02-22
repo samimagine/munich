@@ -3,6 +3,7 @@ import AutoComplete from "../../AutoComplete/AutoComplete";
 import { useFundedStore } from "../../../store/useFundedStore";
 import { businessAreas } from "../../../constants/formOptions";
 import { Title, AutoCompleteWrapper, StepCounter } from "../primitives";
+import { Button } from "./primitives";
 
 interface StepAreasProps {
   onNext: () => void;
@@ -38,7 +39,7 @@ const StepAreas: React.FC<StepAreasProps> = ({ onNext, onBack, onUpdate }) => {
         />
       </AutoCompleteWrapper>
       <StepCounter>Step 3 out of 5</StepCounter>
-      <button onClick={onBack}>Back</button>
+      <Button onClick={onBack}>Back</Button>
     </>
   );
 };

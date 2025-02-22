@@ -1,6 +1,6 @@
 import React from "react";
 import { useFundedStore } from "../../../store/useFundedStore";
-import { Title, StepCounter } from "../primitives";
+import { Title, StepCounter, ButtonContainer, Button } from "../primitives";
 import NumericInput from "../../NumericInput/NumericInput";
 
 interface StepRevenueProps {
@@ -30,8 +30,10 @@ const StepRevenue: React.FC<StepRevenueProps> = ({
         placeholder="Enter monthly revenue"
       />
       <StepCounter>Step 5 out of 5</StepCounter>
-      <button onClick={onBack}>Back</button>
-      <button onClick={onSubmit}>Submit</button>
+      <ButtonContainer>
+        <Button onClick={onBack}>Back</Button>
+        <Button onClick={onSubmit}>Submit</Button>
+      </ButtonContainer>
     </>
   );
 };

@@ -10,25 +10,27 @@ export const InputContainer = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background: white;
+  background: black;
 `;
 
 export const StyledInput = styled.input`
   width: 100%;
   font-size: 16px;
-  border: none;
+  font-family: "Roboto Slab", sans-serif;
+  border: 1px solid white;
+  border-radius: 5px;
   padding: 10px 40px 10px 10px;
   text-align: center;
   outline: none;
+  background: black;
   box-sizing: border-box;
+  color: white;
 `;
 
 export const CurrencySymbol = styled.span`
   position: absolute;
   right: 10px;
   font-size: 16px;
-  color: #000;
+  color: white;
   pointer-events: none;
 `;

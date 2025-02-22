@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -10,6 +10,14 @@ export const Container = styled.div`
   color: white;
   font-family: "Arial", sans-serif;
   text-align: center;
+`;
+
+export const Logo = styled.img`
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 50px; /* Adjust size */
+  width: auto;
 `;
 
 export const Title = styled.h2`
@@ -47,7 +55,10 @@ export const StepCounter = styled.p`
 
 export const ButtonContainer = styled.div`
   margin-top: 20px;
+  width: 300px;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   gap: 10px;
 `;
 

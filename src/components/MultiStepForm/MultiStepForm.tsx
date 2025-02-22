@@ -79,13 +79,18 @@ const MultiStepForm: React.FC = () => {
     console.log("✅ Sending cleaned data:", formData);
 
     try {
+      navigate("/magic");
       const results = await getBestFundingOptions(formData);
-      setFundingResults(results);
-      navigate("/results");
+      setTimeout(() => {
+        setFundingResults(results);
+        navigate("/results");
+      }, 2000);
     } catch (error) {
       console.error("🔴 Error fetching funding options:", error.message);
-      setFundingResults([]);
-      navigate("/results");
+      setTimeout(() => {
+        setFundingResults([]);
+        navigate("/results");
+      }, 2000);
     }
   };
 

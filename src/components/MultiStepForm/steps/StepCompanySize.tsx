@@ -3,6 +3,7 @@ import AutoComplete from "../../AutoComplete/AutoComplete";
 import { useFundedStore } from "../../../store/useFundedStore";
 import { companySizes } from "../../../constants/formOptions";
 import { Title, AutoCompleteWrapper, StepCounter } from "../primitives";
+import { Button } from "./primitives";
 
 interface StepCompanySizeProps {
   onNext: () => void;
@@ -35,7 +36,7 @@ const StepCompanySize: React.FC<StepCompanySizeProps> = ({
         />
       </AutoCompleteWrapper>
       <StepCounter>Step 2 out of 5</StepCounter>
-      <button onClick={onBack}>Back</button>
+      <Button onClick={onBack}>Back</Button>
     </>
   );
 };

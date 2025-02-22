@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
 export const Input = styled.input`
   width: 100%;
   padding: 12px;
+  font-family: "Roboto Slab", sans-serif;
   font-size: 18px;
   border: 1px solid white;
   border-radius: 5px;
